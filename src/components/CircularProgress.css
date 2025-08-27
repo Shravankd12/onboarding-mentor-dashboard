@@ -1,0 +1,40 @@
+/* === Circle Progress === */
+.progress-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-ring {
+  width: 140px;
+  height: 140px;
+}
+
+.progress-ring-bg {
+  color: #e5e7eb; /* light gray background */
+}
+
+.progress-ring-bar {
+  color: #2563eb; /* blue progress */
+}
+
+/* === Labels === */
+.progress-labels {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827; /* dark gray */
+}
+
+.progress-subtext {
+  font-size: 14px;
+  color: #6b7280; /* muted gray */
+}

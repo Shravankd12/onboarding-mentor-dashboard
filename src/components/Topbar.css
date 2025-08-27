@@ -1,0 +1,95 @@
+/* === TopBar Container === */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+  padding: 0 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* === Search Box === */
+.search-container {
+  position: relative;
+  width: 320px;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  font-size: 16px;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  height: 36px;
+  padding-left: 36px; /* space for icon */
+  padding-right: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #ffffff;
+  font-size: 14px;
+  color: #374151;
+  box-sizing: border-box;
+}
+
+.search-input::placeholder {
+  color: #9ca3af;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 4px rgba(37, 99, 235, 0.3);
+}
+
+/* === Right Side Icons === */
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: #374151;
+  font-size: 18px;
+}
+
+.icon-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.notification-dot {
+  position: absolute;
+  top: 0px;
+  right: -2px;
+  width: 8px;
+  height: 8px;
+  background: red;
+  border-radius: 50%;
+}
+
+.icon {
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.icon:hover {
+  color: #2563eb;
+}
+
+.profile-icon {
+  font-size: 28px;
+  color: #6b7280;
+}
+
+.username {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+}

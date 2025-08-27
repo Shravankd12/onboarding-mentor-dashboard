@@ -1,0 +1,118 @@
+.modulesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.moduleCard {
+  display: flex;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.moduleCard:hover {
+  transform: translateY(-3px);
+}
+
+.moduleImage {
+  width: 100px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.moduleContent {
+  flex: 1;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.moduleHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.moduleTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.moduleStatus {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+}
+
+.statusText {
+  font-weight: 500;
+}
+
+.statusCompleted {
+  color: #22c55e; /* green */
+}
+.statusInProgress {
+  color: #3b82f6; /* blue */
+}
+.statusNotStarted {
+  color: #6b7280; /* gray */
+}
+
+.moduleDescription {
+  font-size: 14px;
+  color: #4b5563;
+  margin: 8px 0 12px;
+}
+
+.progressBar {
+  height: 6px;
+  background: #f3f4f6;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progressFill {
+  height: 100%;
+  background: #3b82f6;
+  transition: width 0.3s ease;
+}
+
+.moduleFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.actionButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #2563eb;
+  background: #eef2ff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.actionButton:hover {
+  background: #dbeafe;
+}
+
+.actionIcon {
+  display: flex;
+  align-items: center;
+}

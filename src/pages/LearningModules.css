@@ -1,0 +1,306 @@
+/* Page container */
+.learning-modules {
+  flex: 1;
+  min-width: 0;
+  padding: 20px;
+  overflow-y: auto;
+  background: #f0f6ff; /* light blue theme */
+}
+
+/* Banner */
+.lm-banner {
+  background: linear-gradient(90deg, #1d4ed8, #2563eb);
+  height: 17%;
+  color: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.lm-banner h1 {
+  margin: 0 0 6px 0;
+  font-size: 26px;
+}
+
+.lm-banner p {
+  margin: 0 0 12px 0;
+  opacity: 0.95;
+}
+
+.lm-banner-img {
+  width: 280px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Sections */
+.lm-section {
+  margin-top: 24px;
+}
+
+.lm-section h2 {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  color: #0f172a;
+}
+
+/* Cards grid */
+.lm-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+/* Card */
+.lm-card {
+  background: #fff;
+  border: 1px solid #dbeafe;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.lm-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.lm-card h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #111827;
+}
+
+.lm-card p {
+  margin: 0;
+  color: #4b5563;
+  font-size: 14px;
+}
+
+/* Progress bar */
+.lm-progress {
+  height: 8px;
+  background: #e0f2fe;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.lm-progress-fill {
+  height: 100%;
+  background: #3b82f6;
+  width: 0;
+  transition: width 0.3s ease;
+}
+
+/* Meta row */
+.lm-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lm-status {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.lm-status.gray {
+  color: #6b7280;
+  background: #f3f4f6;
+  border-color: #e5e7eb;
+}
+
+.lm-status.yellow {
+  color: #92400e;
+  background: #fef3c7;
+  border-color: #fde68a;
+}
+
+.lm-status.green {
+  color: #065f46;
+  background: #d1fae5;
+  border-color: #a7f3d0;
+}
+
+.lm-duration {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* Buttons */
+.lm-btn {
+  margin-top: 6px;
+  align-self: flex-start;
+  background: #1d4ed8;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.lm-btn:hover {
+  filter: brightness(1.05);
+}
+
+.lm-btn:disabled {
+  background: #e5e7eb;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* Empty placeholder */
+.lm-empty {
+  grid-column: 1/-1;
+  background: #fff;
+  border: 1px dashed #d1d5db;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  color: #6b7280;
+}
+
+/* ===== PDF Modal (Full screen overlay) ===== */
+.pdf-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 1000;
+}
+
+/* ✅ Responsive modal container */
+.pdf-content {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  height: 90vh; /* Fixed modal height */
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px 16px 60px; /* leave space at bottom for fixed controls */
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* prevent modal itself from scrolling */
+}
+
+/* ✅ Close button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: #000;
+  font-weight: bold;
+  line-height: 1;
+  transition: transform 0.2s ease;
+  z-index: 10;
+}
+
+.close-btn:hover {
+  transform: scale(1.15);
+  color: #000;
+}
+
+.pdf-title {
+  margin: 0 36px 12px 6px;
+  font-size: 18px;
+  color: #0f172a;
+  flex-shrink: 0;
+}
+
+/* ✅ Scrollable PDF viewer only */
+.pdf-viewer-wrap {
+  flex: 1; /* take up all available space above controls */
+  overflow-y: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #fafafa;
+  padding: 10px;
+}
+
+/* ✅ Fixed controls at bottom */
+.pdf-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  border-top: 1px solid #e5e7eb;
+  z-index: 5;
+}
+
+.pdf-controls button {
+  background: #1d4ed8;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.pdf-controls button:disabled {
+  background: #e5e7eb;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* ✅ Special button for completion */
+.pdf-controls .complete-btn {
+  background: #16a34a; /* green */
+}
+
+.pdf-controls .complete-btn:hover {
+  filter: brightness(1.1);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .pdf-content {
+    width: 100%;
+    height: 90vh;
+    padding: 12px 12px 60px;
+  }
+
+  .pdf-title {
+    font-size: 16px;
+  }
+
+  .pdf-controls {
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 8px;
+  }
+
+  .pdf-controls button {
+    font-size: 13px;
+    padding: 7px 12px;
+  }
+}
+

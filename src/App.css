@@ -1,0 +1,18 @@
+/* Full app layout */
+.app {
+  display: flex;
+  height: 100vh; 
+  width: 100vw;                /* ✅ changed from 100vw to 100% to avoid X scroll */
+  background-color: #f9fafb;  /* Tailwind's gray-50 */
+  overflow: hidden;           /* block unwanted scrollbars */
+}
+
+/* Middle content (TopBar + DashboardContent) */
+.main-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;   /* ✅ allow scroll inside main container */
+}
+

@@ -1,0 +1,143 @@
+.progress-analytics {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.analytics-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f3e8ff;
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+}
+
+.analytics-banner h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.analytics-banner p {
+  color: #555;
+}
+
+.analytics-banner-img {
+  width: 220px;
+}
+
+.analytics-section {
+  margin-bottom: 30px;
+}
+
+.analytics-section h2 {
+  margin-bottom: 15px;
+}
+
+/* Progress Summary */
+.progress-summary {
+  display: grid;
+  gap: 20px;
+}
+
+.progress-bar {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.progress-bar label {
+  width: 150px;
+  font-weight: 500;
+}
+
+.progress-bar .bar {
+  flex: 1;
+  height: 12px;
+  background: #eee;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.progress-bar .fill {
+  height: 100%;
+  background: #2196f3;
+  border-radius: 8px;
+}
+
+.progress-bar .fill.green {
+  background: #4caf50;
+}
+
+.progress-bar .fill.purple {
+  background: #9c27b0;
+}
+
+.progress-bar span {
+  min-width: 100px;
+  font-size: 14px;
+  color: #444;
+}
+
+/* Module Progress */
+.module-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.module-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.bar.small {
+  height: 8px;
+  margin: 10px 0;
+}
+
+/* Assessment Performance */
+.assessment-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.assessment-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.assessment-card .score {
+  font-size: 26px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.score.green {
+  color: #4caf50;
+}
+
+.score.purple {
+  color: #9c27b0;
+}
+
+/* Insights */
+.insight-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.insight-card {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.05);
+}

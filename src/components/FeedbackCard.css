@@ -1,0 +1,75 @@
+.feedback-card {
+  background: #ffffff; /* White instead of blue */
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 16px;
+  max-width: 400px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.feedback-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.feedback-icon {
+  color: #2563eb; /* Blue icon */
+  margin-top: 3px;
+}
+
+.feedback-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+.feedback-text {
+  font-size: 14px;
+  color: #4b5563;
+  margin-top: 4px;
+}
+
+.feedback-btn {
+  margin-top: 12px;
+  width: 100%;
+  background: #2563eb;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.feedback-btn:hover {
+  background: #1e40af;
+}
+
+.feedback-input-box {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.feedback-input {
+  width: 100%;
+  min-height: 80px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 14px;
+  resize: vertical;
+}
+
+.thank-you {
+  font-size: 15px;
+  font-weight: 500;
+  color: #16a34a;
+  text-align: center;
+}
