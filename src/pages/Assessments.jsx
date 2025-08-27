@@ -15,7 +15,7 @@ const initialAssessments = [
     title: "Communication Skills Quiz",
     desc: "MCQ-based quiz to evaluate your communication skills.",
     due: "27 Aug 2025",
-    status: "ongoing", 
+    status: "ongoing",
     score: null,
   },
   {
