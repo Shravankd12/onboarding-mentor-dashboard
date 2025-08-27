@@ -1,26 +1,20 @@
-import React, { useEffect, useState } from "react";
-import  WelcomeBanner  from "../components/WelcomeBanner.jsx";
-import  CircularProgress  from "../components/CircularProgress.jsx";
+import React, { useState } from "react";
+import WelcomeBanner from "../components/WelcomeBanner.jsx";
+import CircularProgress from "../components/CircularProgress.jsx";
 import { AchievementBadges } from "../components/AchievementBadges.jsx";
-import  {ModuleList } from "../components/ModuleList.jsx";
-import  {AssessmentList}  from "../components/AssessmentList.jsx";
-import  FeedbackCard  from "../components/FeedbackCard.jsx";
+import { ModuleList } from "../components/ModuleList.jsx";
+import { AssessmentList } from "../components/AssessmentList.jsx";
+import FeedbackCard from "../components/FeedbackCard.jsx";
+import ProgressAnalytics from "../pages/ProgressAnalytics.jsx"; // ✅ import added
 import "./DashboardContent.css";
 
 export const DashboardContent = () => {
-  const [overallProgress, setOverallProgress] = useState(65);
-
-  // Update the welcome banner when overall progress changes
-  useEffect(() => {
-    const updateProgressText = document.getElementById("progress-text");
-    if (updateProgressText) {
-      updateProgressText.textContent = `${overallProgress}%`;
-    }
-  }, [overallProgress]);
+  const [overallProgress, setOverallProgress] = useState(0);
 
   return (
     <div className="dashboard-content">
-      <WelcomeBanner progress={overallProgress} />
+      {/* ✅ Banner now gets live overall progress */}
+      <WelcomeBanner overallProgress={overallProgress} />
 
       <div className="dashboard-grid">
         {/* Left column */}
@@ -55,6 +49,11 @@ export const DashboardContent = () => {
           </div>
           <FeedbackCard />
         </div>
+      </div>
+
+      {/* ✅ Mount ProgressAnalytics but hidden or placed in a section */}
+      <div style={{ display: "none" }}>
+        <ProgressAnalytics onOverallChange={setOverallProgress} />
       </div>
     </div>
   );

@@ -92,6 +92,18 @@
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+  text-align: center; /* ✅ Added for consistency */
+}
+
+.module-card h3 {
+  font-size: 16px;
+  margin-bottom: 8px; /* ✅ Added for spacing like assessment cards */
+}
+
+.module-card .score {
+  font-size: 26px;
+  font-weight: bold;
+  margin-top: 10px; /* ✅ Added for consistency */
 }
 
 .bar.small {
@@ -112,6 +124,11 @@
   border-radius: 12px;
   text-align: center;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.assessment-card h3 {
+  font-size: 16px;
+  margin-bottom: 8px; /* ✅ keep consistent with module-card */
 }
 
 .assessment-card .score {

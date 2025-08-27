@@ -2,13 +2,13 @@ import React from "react";
 import { FiArrowRight } from "react-icons/fi";
 import "./WelcomeBanner.css";
 
-const WelcomeBanner = ({ progress = 65 }) => {
+const WelcomeBanner = ({ overallProgress }) => {
   return (
     <div className="welcome-banner">
       <div className="welcome-left">
         <h1>Welcome back, Sarah!</h1>
         <p>
-          You&apos;ve completed <span>{progress}%</span> of your onboarding journey.
+          You&apos;ve completed <span>{overallProgress}%</span> of your onboarding journey.
           Keep up the good work!
         </p>
         <button className="continue-btn">

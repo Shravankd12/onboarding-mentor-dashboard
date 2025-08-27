@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./ProgressAnalytics.css";
 
-const ProgressAnalytics = () => {
+const ProgressAnalytics = ({ onOverallChange }) => {
   const [learningProgress, setLearningProgress] = useState(0);
   const [assessProgress, setAssessProgress] = useState(0);
   const [averageScore, setAverageScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
   const [completedTests, setCompletedTests] = useState(0);
+  const [failedTests, setFailedTests] = useState(0);
+
+  const [completedModules, setCompletedModules] = useState(0);
+  const [pendingModules, setPendingModules] = useState(0);
 
   useEffect(() => {
     // 🔹 Load Learning Modules
@@ -20,6 +24,9 @@ const ProgressAnalytics = () => {
       const completed = storedModules.completed.length;
       const percent = total > 0 ? Math.round((completed / total) * 100) : 0;
       setLearningProgress(percent);
+
+      setCompletedModules(completed);
+      setPendingModules(total - completed);
     }
 
     // 🔹 Load Assessments
@@ -27,22 +34,38 @@ const ProgressAnalytics = () => {
     if (storedAssess) {
       const total = storedAssess.length;
       const completed = storedAssess.filter((a) => a.status === "completed");
+      const failed = storedAssess.filter((a) => a.status === "failed");
+
+      // ✅ Progress bar only depends on completed
       const percent = total > 0 ? Math.round((completed.length / total) * 100) : 0;
       setAssessProgress(percent);
 
-      if (completed.length > 0) {
-        const scores = completed.map((c) => c.score || 0);
+      // ✅ Average/Best score should include completed + failed
+      const considered = storedAssess.filter(
+        (a) => a.status === "completed" || a.status === "failed"
+      );
+
+      if (considered.length > 0) {
+        const scores = considered.map((c) => c.score || 0);
         const avg = Math.round(scores.reduce((a, b) => a + b, 0) / scores.length);
         const best = Math.max(...scores);
 
         setAverageScore(avg);
         setBestScore(best);
         setCompletedTests(completed.length);
+        setFailedTests(failed.length);
       }
     }
   }, []);
 
   const overall = Math.round((learningProgress + assessProgress) / 2);
+
+  // 🔹 Notify parent (DashboardContent) whenever overall changes
+  useEffect(() => {
+    if (onOverallChange) {
+      onOverallChange(overall);
+    }
+  }, [overall, onOverallChange]);
 
   return (
     <div className="progress-analytics">
@@ -102,6 +125,25 @@ const ProgressAnalytics = () => {
           <div className="assessment-card">
             <h3>Completed Tests</h3>
             <p className="score purple">{completedTests}</p>
+          </div>
+          <div className="assessment-card">
+            <h3>Failed Tests</h3>
+            <p className="score red">{failedTests}</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Learning Modules Performance */}
+      <div className="analytics-section">
+        <h2>Learning Modules</h2>
+        <div className="assessment-cards">
+          <div className="assessment-card">
+            <h3>Completed Modules</h3>
+            <p className="score green">{completedModules}</p>
+          </div>
+          <div className="assessment-card">
+            <h3>Pending Modules</h3>
+            <p className="score purple">{pendingModules}</p>
           </div>
         </div>
       </div>

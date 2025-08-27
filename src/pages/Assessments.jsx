@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Assessments.css";
 
 const initialAssessments = [
@@ -23,7 +23,7 @@ const initialAssessments = [
     title: "Sales Knowledge Test",
     desc: "Evaluate your product and sales process knowledge.",
     due: "28 Aug 2025",
-    status: "upcoming",
+    status: "ongoing",
     score: null,
   },
   {
@@ -31,7 +31,7 @@ const initialAssessments = [
     title: "Leadership Quiz",
     desc: "Quick quiz on leadership styles and practices.",
     due: "02 Sep 2025",
-    status: "upcoming",
+    status: "ongoing",
     score: null,
   },
 ];
@@ -89,9 +89,32 @@ const questionBank = {
 };
 
 const Assessments = () => {
-  const [assessments, setAssessments] = useState(initialAssessments);
+  const [assessments, setAssessments] = useState(() => {
+    const saved = localStorage.getItem("assessments");
+    return saved ? JSON.parse(saved) : initialAssessments;
+  });
+
   const [activeQuiz, setActiveQuiz] = useState(null);
   const [showQuiz, setShowQuiz] = useState(false);
+
+  // 🔹 Save to localStorage whenever assessments update
+  useEffect(() => {
+    localStorage.setItem("assessments", JSON.stringify(assessments));
+  }, [assessments]);
+
+  // 🔹 Auto mark failed if past due
+  useEffect(() => {
+    const today = new Date();
+    setAssessments((prev) =>
+      prev.map((a) => {
+        const dueDate = new Date(a.due);
+        if (today > dueDate && a.status !== "completed") {
+          return { ...a, status: "failed", score: 0 };
+        }
+        return a;
+      })
+    );
+  }, []);
 
   const startQuiz = (assessment) => {
     setActiveQuiz(assessment);
@@ -134,15 +157,15 @@ const Assessments = () => {
       />
 
       <Section
-        title="Upcoming Assessments"
-        items={assessments.filter((a) => a.status === "upcoming")}
-        startQuiz={startQuiz}
-      />
-
-      <Section
         title="Completed Assessments"
         items={assessments.filter((a) => a.status === "completed")}
         completed
+      />
+
+      <Section
+        title="Failed Assessments"
+        items={assessments.filter((a) => a.status === "failed")}
+        failed
       />
 
       {showQuiz && activeQuiz && (
@@ -156,7 +179,7 @@ const Assessments = () => {
   );
 };
 
-const Section = ({ title, items, startQuiz, completed }) => {
+const Section = ({ title, items, startQuiz, completed, failed }) => {
   if (items.length === 0) return null;
   const today = new Date();
 
@@ -165,24 +188,22 @@ const Section = ({ title, items, startQuiz, completed }) => {
       <h2>{title}</h2>
       <div className="assess-cards">
         {items.map((a) => {
-          const isLocked = new Date(a.due) > today;
+          const isLocked = today > new Date(a.due); // ✅ Lock only AFTER due date
           return (
             <div key={a.id} className="assess-card">
               <h3>{a.title}</h3>
               <p>{a.desc}</p>
-              <p className="assess-due">{a.due}</p>
-              {completed ? (
+              <p className="assess-due">Due: {a.due}</p>
+
+              {failed ? (
+                <span className="assess-status red">Failed</span>
+              ) : completed ? (
                 <span className="assess-status green">Score: {a.score}%</span>
               ) : (
-                <span
-                  className={`assess-status ${
-                    a.status === "ongoing" ? "blue" : "yellow"
-                  }`}
-                >
-                  {a.status.charAt(0).toUpperCase() + a.status.slice(1)}
-                </span>
+                <span className="assess-status blue">Ongoing</span>
               )}
-              {!completed && (
+
+              {!completed && !failed && (
                 <button
                   className="assess-btn"
                   onClick={() => startQuiz(a)}
@@ -191,9 +212,16 @@ const Section = ({ title, items, startQuiz, completed }) => {
                   {isLocked ? "Locked" : "Start Now"}
                 </button>
               )}
+
               {completed && (
                 <button className="assess-btn" disabled>
                   Completed
+                </button>
+              )}
+
+              {failed && (
+                <button className="assess-btn" disabled>
+                  Locked
                 </button>
               )}
             </div>
@@ -204,7 +232,6 @@ const Section = ({ title, items, startQuiz, completed }) => {
   );
 };
 
-// 🔹 Quiz Popup
 const QuizPopup = ({ assessment, onClose, onComplete }) => {
   const questions = questionBank[assessment.id];
   const [index, setIndex] = useState(0);

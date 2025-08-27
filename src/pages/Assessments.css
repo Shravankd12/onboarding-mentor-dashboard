@@ -249,6 +249,10 @@
   color: #2e7d32;
   font-weight: 600;
 }
+.assess-status.red {
+  background: #f8d7da;
+  color: #721c24;
+}
 
 .fail {
   color: #c62828;
