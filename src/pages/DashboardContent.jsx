@@ -44,7 +44,7 @@ export const DashboardContent = () => {
         {/* Right column */}
         <div className="right-column">
           <div className="card">
-            <h3 className="card-title mb-4">Upcoming Assessments</h3>
+            <h3 className="card-title mb-4">Total Assessments</h3>
             <AssessmentList />
           </div>
           <FeedbackCard />
