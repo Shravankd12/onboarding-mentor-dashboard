@@ -1,8 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; // ✅ import useNavigate
 import { FiArrowRight } from "react-icons/fi";
 import "./WelcomeBanner.css";
 
 const WelcomeBanner = ({ overallProgress }) => {
+  const navigate = useNavigate(); // ✅ initialize navigate
+
+  const handleContinue = () => {
+    navigate("/learning-modules"); // now this will work
+  };
+
   return (
     <div className="welcome-banner">
       <div className="welcome-left">
@@ -11,7 +18,7 @@ const WelcomeBanner = ({ overallProgress }) => {
           You&apos;ve completed <span>{overallProgress}%</span> of your onboarding journey.
           Keep up the good work!
         </p>
-        <button className="continue-btn">
+        <button className="continue-btn" onClick={handleContinue}>
           Continue Learning <FiArrowRight className="arrow-icon" />
         </button>
       </div>

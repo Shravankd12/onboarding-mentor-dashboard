@@ -34,7 +34,7 @@ export const Sidebar = () => {
       {/* Profile */}
       <div className="sidebar-profile">
         <img
-          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=80&h=80&q=80"
+          src="https://static.thenounproject.com/png/user-avatar-icon-590434-512.png"
           alt="Profile"
           className="profile-img"
         />
