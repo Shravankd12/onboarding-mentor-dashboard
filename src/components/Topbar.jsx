@@ -24,7 +24,7 @@ const TopBar = () => {
         </div>
         <FiHelpCircle className="icon" />
         <FaUserCircle className="icon profile-icon" />
-        <span className="username">Sarah Johnson ▼</span>
+        <span className="username">Shravan Rajpurohit</span>
       </div>
     </div>
   );

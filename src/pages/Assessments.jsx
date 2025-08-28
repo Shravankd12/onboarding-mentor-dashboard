@@ -143,11 +143,12 @@ const Assessments = () => {
           <h1>Your Assessments</h1>
           <p>Track your tests, quizzes, and evaluation scores.</p>
         </div>
-        <img
-          src="/assets/assessments-illustration.png"
-          alt="Assessments Illustration"
-          className="assess-banner-img"
-        />
+<img
+  src="/assets/book-line-art.jpg"
+  alt="Learning Illustration"
+  className="lm-banner-img"
+/>
+
       </div>
 
       <Section

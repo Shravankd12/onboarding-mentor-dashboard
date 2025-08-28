@@ -39,7 +39,7 @@ export const Sidebar = () => {
           className="profile-img"
         />
         <div className="profile-info">
-          <p className="profile-name">Sarah Johnson</p>
+          <p className="profile-name">Shravan Rajpurohit</p>
           <p className="profile-role">New Mentee</p>
         </div>
         <button className="logout-btn">

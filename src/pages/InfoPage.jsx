@@ -11,12 +11,15 @@ const InfoPage = () => {
       <div className="info-section">
         <div className="info-card">
           <div className="profile-pic">
-            <img src="/assets/user-avatar.png" alt="User Avatar" />
+          <img
+  src="https://static.thenounproject.com/png/user-avatar-icon-590434-512.png"
+  alt="User Avatar"
+/>
           </div>
           <div className="profile-info">
-            <p><strong>Full Name:</strong> John Doe</p>
-            <p><strong>Email:</strong> johndoe@email.com</p>
-            <p><strong>Role:</strong> Sales Intern</p>
+            <p><strong>Full Name:</strong> Shravan Rajpurohit</p>
+            <p><strong>Email:</strong> Shravankd12@email.com</p>
+            <p><strong>Role:</strong> Software Engineer</p>
           </div>
         </div>
       </div>

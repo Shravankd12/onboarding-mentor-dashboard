@@ -76,7 +76,7 @@ const ProgressAnalytics = ({ onOverallChange }) => {
           <p>Track your learning journey and performance growth over time.</p>
         </div>
         <img
-          src="/assets/analytics-illustration.png"
+          src="/assets/analytics.webp"
           alt="Analytics Illustration"
           className="analytics-banner-img"
         />

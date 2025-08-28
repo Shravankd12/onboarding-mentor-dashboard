@@ -6,7 +6,7 @@ const WelcomeBanner = ({ overallProgress }) => {
   return (
     <div className="welcome-banner">
       <div className="welcome-left">
-        <h1>Welcome back, Sarah!</h1>
+        <h1>Welcome back, Shravan Rajpurohit!</h1>
         <p>
           You&apos;ve completed <span>{overallProgress}%</span> of your onboarding journey.
           Keep up the good work!

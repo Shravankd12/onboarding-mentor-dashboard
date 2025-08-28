@@ -130,7 +130,7 @@ const LearningModules = () => {
           <p>Track your progress and continue your journey!</p>
         </div>
         <img
-          src="/assets/learning-illustration.png"
+          src="/assets/online-certification-illustration.avif"
           alt="Learning Illustration"
           className="lm-banner-img"
         />
